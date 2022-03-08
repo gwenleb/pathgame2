@@ -1,0 +1,380 @@
+<html lang="en">
+<head>
+ 
+  <script type="text/javaScript">
+    
+    function afficher_cacher(id)
+    {
+        if(document.getElementById(id).style.visibility=="hidden")
+        {
+            document.getElementById(id).style.visibility="visible";
+            document.getElementById('bouton_'+id).innerHTML='Cacher le texte';
+        }
+        else
+        {document.getElementById(id).style.visibility="hidden";
+            document.getElementById('bouton_'+id).innerHTML='Afficher le texte';
+           
+        }
+        return true;
+    }
+
+</script>
+
+
+  <title>Niveau1</title>
+  
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li class="menu-deroulant">
+       <a>Niveau</a>
+        <ul class="sous-menu">
+          <li><a href="jeu css.html">Niveau 1</a></li>
+          <li><a href="niveau2.html">Niveau 2</a></li>
+          <li><a href="niveau3.html">Niveau 3</a></li>
+        </ul>
+      </li>
+      <li><a href="Acueil.html">Accueil</a></li>
+      
+    </ul>
+  </nav>
+
+
+
+  <br><br><br><br><br><br><br><br><br><h1><center><a name="niveau1">Bienvenu au niveau 1</a><br>Bonne chance</center></h1>
+  <svg id="template" width="800px" height="2400px" viewBox="0 0 800 2400" version="1.1" xmlns="http://www.w4.org/2000/svg" xmlns:xlink="http://www.w4.org/1999/xlink">
+    <defs/>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="wall" fill="#B5B5B5">
+        <clipPath id="left">
+          <path d="M208,2400 C263,2400 309,2355 311,2300 L312,2217 L157,2136 L157,1950  L525,1623   L193,968 L500,834  L294,639 L490,400  L203,259 L207,87 C180,39 214,-1e-15 159,-1e-15 L0,-1e-15 L0,2400  " id="path-1"></path>
+          </clipPath>
+          <clipPath id="right">
+          <path d="M807,2400 C552,2400 500,2355 491,2301 L477,2217 L322,2136 L322,2000  L740,1650 L634,1501  L400,1043 L730,834  L442,634  L600,400 L477,265 L508,98 C518,44 571,-1e-15 626,-1e-15 L800,-1e-15 " id="path-2"></path>
+          </clipPath>
+      </g>
+    </g>
+  </svg>
+  <div class="game-container">
+    <section id="game">
+      <div id="start-spot"></div>
+      <div class="wall-left"></div>
+      <div class="wall-right"></div>
+
+      <div id="gameover"><h1>perdu, retente ta chance en sortant la souris de l'écran</h1></div>
+      <div id="win"><h1>bravooo!<br/>Tu as réussi le niveau 1!<br></h1></div>
+    </section>
+  </div>
+  <section>
+   <br>
+<!--affiche le niveau 1-->
+
+
+<center>Comment jouer? <span class="bouton"   id="bouton_texte" onclick="javascript:afficher_cacher('texte');">afficher le texte</span>
+    <div id="texte" class="cacher">
+       <br>Pour jouer, il suffit de déplacer la souris en suivant le chemin de terre et en évitant l'herbe.
+    </div></center> 
+<!--pose une question-->
+   
+<br><br><br><br><br>
+</body>
+</html>
+
+
+
+<style type="text/css">
+
+:root{
+  --hauteur-menu: 60px;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Montserrat, sans-serif;
+}
+nav {
+  width: 100%;
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+}
+
+nav > ul {
+  display: flex;
+  text-align: center;
+  box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
+  height: var(--hauteur-menu);
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav > ul > li {
+  background-image:url(https://www.mdy-france.com/wp-content/uploads/2017/08/noir-absolu-india.jpg);
+  position: relative;
+  height: 100%;
+  flex: 1;
+}
+
+
+nav > ul > li > a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu-deroulant > a:after{
+  content: '❯';
+  font-size: 15px;
+  margin-left: 7px;
+  display: inline-block;
+}
+
+.sous-menu {
+  margin-top: var(--hauteur-menu);
+  width: 100%;
+  text-align: left;
+  background-image: url(https://www.mdy-france.com/wp-content/uploads/2017/08/noir-absolu-india.jpg);
+  border-radius: 2px;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.sous-menu > li > a {
+  height: 50px;
+  padding-left: 20px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+nav > ul > li:hover > a{
+  color: #2169EC;
+}
+
+.sous-menu > li:hover {
+  background-color: rgba(33, 105, 236, 0.3);
+}
+
+.sous-menu > li:hover > a {
+  color: white;
+}
+
+@keyframes rotationFleche {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(90deg);
+  }
+}
+
+.menu-deroulant:hover > a:after{
+  animation: rotationFleche 0.2s linear forwards;
+}
+
+@keyframes apparitionSousMenu {
+  0% {
+    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
+    border-top: 3px solid #2169EC;
+  }
+  30% {
+    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+  }
+  100% {
+    max-height: 50em;
+    border-top: 3px solid #2169EC;
+    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+  }
+}
+
+.menu-deroulant:hover > .sous-menu {
+  animation: apparitionSousMenu 1s forwards;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cacher{
+    visibility:hidden}
+
+.Bouton{color:blue;
+    cursor:pointer
+}
+
+html, body {
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  background: #333;
+  color: #fff;
+}
+
+a {
+  color: tomato;
+}
+
+#template {
+  position: absolute;
+  top: -999em;
+}
+
+.game-container {
+  width: 800px;
+  height: 530px;
+  overflow: hidden;
+  margin: 2em auto;
+  background-color: black;
+}
+#game {
+  position: relative;
+  top: -70px;
+  width: 800px;
+  height: 600px;
+  margin: 20px auto 40px;
+  box-shadow: 0 1px 15px #222;
+  overflow: hidden;
+  background-color:rgb(141, 87, 56);
+  -webkit-transform: perspective(200px) rotateX(15deg) translateY(-90px);
+          transform: perspective(200px) rotateX(15deg) translateY(-90px);
+  cursor: url('http://victordarras.fr/cssgame/vessel.png'), auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+#gameover,
+#win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#gameover {
+  display: none;
+  background: tomato;
+}
+#win {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#start-spot {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: white;
+}
+
+.wall-left,
+.wall-right {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 400%;
+  background-image: url(https://thumbs.dreamstime.com/b/texture-d-herbe-14118217.jpg);
+  transform: translateZ(1px);
+}
+.wall-left {
+  left: 0;
+  clip-path: url('#left');
+}
+.wall-right {
+  right: 0;
+  clip-path: url('#right');
+}
+
+#game:hover .wall-left,
+#game:hover .wall-right {
+  -webkit-animation: wallScroll 10s ease-in forwards;
+          animation: wallScroll 10s ease-in forwards;
+}
+#game:hover #win {
+  -webkit-animation: win 10s linear forwards;
+          animation: win 10s linear forwards;
+}
+
+#game:hover #start-spot {
+  display: none;
+}
+
+.wall-left:hover ~ #gameover,
+.wall-right:hover ~ #gameover,
+#gameover:hover {
+  display: block;
+  z-index: 1;
+}
+
+
+/* Quelques styles pour la forme */
+#gameover h1,
+#win h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+}
+.instructions {
+  font-weight: lighter;
+  line-height: 1.4;
+}
+
+/* Les keyframes en bas de document, par convention */
+
+
+@keyframes wallScroll {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+
+@keyframes win {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+</style>
